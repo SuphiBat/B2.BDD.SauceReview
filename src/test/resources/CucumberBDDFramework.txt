@@ -1,0 +1,81 @@
+CUCUMBER BDD FRAMEWORK REVIEW
+
+> Download plugin : (intelliJ de, Cucumber for java ve Gherkin pluginlerini indir)
+		1. Windows --> IntelliJ IDEA - File - Settings-Plugins
+		   Mac --> IntelliJ IDEA – Preference - Plugins
+		2. Marketplace
+		3. Cucumber for java -install
+		4. Gherkin- install
+		5. Installed- indirilen pluginleri kontrol et
+		6. Gerekiyorsa IDE'yi re-start yap
+
+> Maven Projesi Oluşturma :
+		1. Open IntelliJ
+		2. File-->new-->Project
+		3. Maven (seç -> next)
+		4. GroupID: com.sauce
+		5. ArtifactID : Audit_B2_BDD_SauceReview
+
+> POM.xml dosyasına dependencies ekleme:
+		1. Selenium-Java
+			https://mvnrepository.com/ -->(search) selenium--> Selenium-Java (seç)--> version -3.141.59
+			(seç)--> maven dependency (kopyala)--> POM.xml <dependencies>---- buraya yapıştır---</dependencies>
+		2. Webdrivermanager
+			https://mvnrepository.com/ -->(search) webdrivermanager--> WebDriverManager
+			(io.github.bonigarcia) (seç)--> version -5.4.1 (seç)--> maven dependency (kopyala)--> POM.xml
+			<dependencies>---- buraya yapıştır--- </dependencies>
+		3. Cucumber-Java
+			https://mvnrepository.com/ -->(search) cucumber--> cucumber-JVM:Java (io.cucumber » cucumber-
+			java)(seç)--> version -7.11.0 (seç)--> maven dependency (kopyala)--> POM.xml <dependencies>----
+			buraya yapıştır--- </dependencies>
+		4. Cucumber-JUnit
+			https://mvnrepository.com/ -->(search) cucumber--> Cucumber JVM:Junit (io.cucumber » cucumber-
+			junit) (seç)--> version -7.11.0 (seç)--> maven dependency (kopyala)--> POM.xml <dependencies>--
+			-- buraya yapıştır--- </dependencies>
+			Raporlama için kullanılır
+
+			Maven surefire plugin : Test klasörü altında birim testleri için döngü oluşturur,testlerin sırasını takip eder ve iki farklı dosya biçiminde "düz metin (.txt) ve XML (.xml)" raporlar.
+			Paralel test için kullanılır.
+			Runner class ları sırasıyla çalıştırır.
+			Cucumber rapor için kullanılır
+
+> Page Object Model (POM) Design Pattern i oluşturma :
+	pages package
+		1. Right click on sauce
+		2. New -> package
+		3. Name: utilities
+	runners package
+		1. Right click on sauce
+		2. New -> package
+		3. Name: runners
+	step_definitions package
+		1. Right click on sauce
+		2. New -> package
+		3. Name: step_definitions
+	utilities package
+		1. Right click on sauce
+		2. New -> package
+		3. Name: utilities
+**********************************************************
+	resources directory
+		1. Right click on test
+		2. New -> directory
+		3. Name: resources
+	Features directory
+		1. Right click to resource folder
+		2. New -> directory
+		3. Name: features
+	Configuration.properties
+		1. Right click on project name..
+		2. New -> file
+		3. Name: configuration.properties
+
+	• Runner Class
+		1. CukesRunner
+		2. FailedTestRunner
+	• Step_definitions
+		1. Hooks --> !senaryo başarısız olsa dahi Hooks daima 'run' olacaktır!
+	• utilities
+		1. BrowserUtils class : genel metodlar saklanır
+		2. ConfigurationReader class : configuration.properties de saklı credential-url vb bilgileri kulanmaya yarar
+		3. Driver class : kullanacağımız driverı seçip ayarlar

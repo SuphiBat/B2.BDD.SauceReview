@@ -1,0 +1,20 @@
+TELL ME ABOUT YOUR FRAMEWORK
+
+Test automation için ana programlama dilim olan Java ile Selenium kullanıyorum.
+IDE olarak IntelliJ kullanırım. 
+Projem Data Driven ve Behavior Driven Frameworkleri içerdiği için Hybrid bir Cucumber projesidir. 
+Annotation ve Assertion lar için JUnit kullanıyorum.
+Projemi Maven build automation tool ile oluşturuyorum. 
+Projem içindeki directory, package ve file lardan bahsedecek olursam;
+Projemde benim için en önemli dosyalardan biri pom.xml dosyasıdır. Projemin beynidir. Projemde ihtiyaç duyduğum dependency ve pluginleri buradan yönetirim. Proje seviyesinin altında bulunur.
+pom.xml file ile aynı seviyede configuration.properties file vardır ki; browser, url, kullanıcı adı ve şifresi gibi önemi test datalarını bu dosya içerisinde depolarım ve ihtiyaca göre buradan değiştirebilirim.
+pom.xml ve configuration.properties dosyaları ile aynı seviyede source folder olarak da adlandırabileceğimiz src directory vardır. İçerisinde sırasıyla parent child ilişkisi bulunan test>java>com>sauce package ları vardır. sauce package içerisinde de pages, runners, stepDefinitions (stepDefs) ve utilities package ları bulunuyor.
+Yine src directory altındaki test directory içerisinde java directory ile kardeş seviyede resources directory bulunur ve içerisinde features directory vardır ki, bu directory içerisinde Scenario ve/veya Scenario Outline şeklinde, end user (son kullanıcı/müşteri) bakış açısı ile Gherkin Language/Dili ile  test case lerimi yazdığım feature file lar bulunur.
+Tekrar sauce package içerisine dönersek;
+utilities package projede ellerim gibi adlandırabileceğim methodlarımı yazdığım BrowserUtils, configuration.properties file içeriğini otomasyon kodlarımın okumasını ve almasını sağlayan ConfigurationReader ve WebDriver ı Singleton Design Pattern ile başlatmamı sağlayan Driver classlarını içerir.
+stepDefs package içerisinde Hooks ve StepDefinition classlarım vardır. Hooks class içinde cucumber.javadan gelen @Before ve @After annotationlar ile driver ı başlatır ve kapatırım. StepDefinition classlar içinde de feature filelar içinde bulunan her test step i aksiyona çeviren kodlarımı yazdığım methodlarımı tanımlarım..
+pages package içerisinde test ettiğim sitenin her sayfası için webElementleri locate ettiğim ve gerekli methodları yazdığım ayrı ayrı page classlarım vardır ki böylece Page Object Model Design Pattern kullanabiliyorum.
+runners package içerisinde de CukesRunner ve FailedTestRunner classlarım vardır. CukesRunner class içerisindeki @RunWith ve @CucumberOptions annotationlar sayesinde istediğim testi/scenario yu çalıştırırım. Maven üzerinden "verify" yaparak testlerimi run ettiğimde de CukesRunner class içindeki tanımlamaya göre belirlenmiş olan test çalışır, failed olması durumunda da FailedTestRunner class devreye girer ve böylece kalan testler tekrar çalışır. Test sonuçlarına da lokasyonlarını target package olarak belirlediğim klasör içerisinden ulaşabilirim. Raporlama için cucumber.json reporting plugin kullanıyorum ki bu rapor sonuçlarını da Jiraya import edebiliyorum. Buradan da anlaşılabileceği gibi Project Management Tool olarak Jira kullanıyorum.
+Version Control Sysytem olarak git, remote repository olarak da GitHub kullanıyorum.
+Web elementleri tek bir merkezi yerde depoladığım için frameworkmün bakımı ve yönetimi kolaydır. Uygulamada web elementlerle ilgili herhangi bir değişiklik olursa, test komut dosyalarının doğru şekilde çalıştırılması için nereye gideceğimi ve bunu nasıl düzelteceğimi biliyorum.
+Görüldüğü gibi Frameworküm kalitelidir ve kalitenin sağlanmasında da büyük faydası vardır.
