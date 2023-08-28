@@ -34,7 +34,8 @@ CUCUMBER BDD FRAMEWORK REVIEW
 			-- buraya yapıştır--- </dependencies>
 			Raporlama için kullanılır
 
-			Maven surefire plugin : Test klasörü altında birim testleri için döngü oluşturur,testlerin sırasını takip eder ve iki farklı dosya biçiminde "düz metin (.txt) ve XML (.xml)" raporlar.
+			Maven surefire plugin : Test klasörü altında birim testleri için döngü oluşturur,testlerin sırasını takip
+			eder ve iki farklı dosya biçiminde "düz metin (.txt) ve XML (.xml)" raporlar.
 			Paralel test için kullanılır.
 			Runner class ları sırasıyla çalıştırır.
 			Cucumber rapor için kullanılır

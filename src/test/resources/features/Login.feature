@@ -1,4 +1,4 @@
-@login
+@login @smoke
 Feature: User should be able to login with valid credentials
 
   Background:
@@ -14,7 +14,7 @@ Feature: User should be able to login with valid credentials
       | problem_user            | secret_sauce   |
       | performance_glitch_user | secret_sauce   |
 
-  @wip
+
   Scenario Outline: Negative Login Test
     When The user enters invalid or empty "<username>" or "<password>" credential
     Then The user should be able see the "<error message>"
